@@ -61,7 +61,7 @@ collections:
     folder: "public/content/museum"
     create: true
     slug: "{{slug}}"
-    # ✅ Chemins absolus depuis la racine du repo - MODIFIÉ : blog → museum
+    # Chemins absolus depuis la racine du repo
     media_folder: "/public/images/museum"
     public_folder: "/images/museum"
     i18n: true
@@ -70,15 +70,22 @@ collections:
       - {label: "Artist", name: "artist", widget: "string", i18n: duplicate, required: false}
       - {label: "Year", name: "year", widget: "string", i18n: duplicate, required: false}
       
-      # ✅ SOLUTION : Utiliser un objet Featured Image comme pour le blog
-      - label: "Featured Image"
+      # ✅ Image principale (utilisée par les composants)
+      - label: "Artwork Image"
+        name: "image"
+        widget: "image"
+        i18n: duplicate
+        hint: "Main image for the artwork (will be displayed in museum pages)"
+      
+      # ✅ Featured Image pour SEO (avec alt text)
+      - label: "Featured Image (SEO)"
         name: "featuredImage"
         widget: "object"
-        required: true
-        hint: "Main image for the artwork (1200x630px recommended)"
+        required: false
+        hint: "Optional: SEO-optimized version with alt text. If empty, 'image' field will be used."
         fields:
           - {label: "Image", name: "src", widget: "image", i18n: duplicate}
-          - {label: "Alt Text", name: "alt", widget: "string", i18n: true, hint: "Describe the artwork for accessibility and SEO (important!)"}
+          - {label: "Alt Text", name: "alt", widget: "string", i18n: true, hint: "Describe the artwork for accessibility and SEO"}
       
       - {label: "Excerpt", name: "excerpt", widget: "text", i18n: true, required: false, hint: "Short summary (150-160 characters) for previews and search results"}
       - {label: "Description", name: "body", widget: "markdown", i18n: true}
