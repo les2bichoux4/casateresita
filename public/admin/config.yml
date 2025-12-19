@@ -18,7 +18,7 @@ collections:
     folder: "public/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    # Chemins absolus depuis la racine du repo
+    # ✅ CHEMINS ABSOLUS depuis la racine
     media_folder: "/public/images/blog"
     public_folder: "/images/blog"
     i18n: true
@@ -30,7 +30,8 @@ collections:
       - label: "Featured Image"
         name: "featuredImage"
         widget: "object"
-        i18n: false
+        # ✅ IMPORTANT: i18n: duplicate pour que l'image soit copiée dans les deux langues
+        i18n: duplicate
         hint: "Main image shown in blog listing (1200x630px recommended)"
         fields:
           - {label: "Image", name: "src", widget: "image"}
@@ -59,7 +60,7 @@ collections:
     folder: "public/content/museum"
     create: true
     slug: "{{slug}}"
-    # Chemins absolus depuis la racine du repo
+    # ✅ CHEMINS ABSOLUS depuis la racine
     media_folder: "/public/images/museum"
     public_folder: "/images/museum"
     i18n: true
@@ -73,7 +74,8 @@ collections:
       - label: "Featured Image"
         name: "featuredImage"
         widget: "object"
-        i18n: false
+        # ✅ IMPORTANT: i18n: duplicate pour que l'image soit copiée dans les deux langues
+        i18n: duplicate
         required: false
         hint: "SEO-optimized image (same as 'Image' but with alt text)"
         fields:
