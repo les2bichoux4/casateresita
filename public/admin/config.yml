@@ -2,20 +2,17 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "/public/images"
-public_folder: "/images"
-
 locale: "en"
-
 i18n:
   structure: multiple_folders
   locales: [en, es]
   default_locale: en
 
 collections:
-  # ===============================
-  # BLOG
-  # ===============================
+
+  # =========================================================
+  # 📝 BLOG
+  # =========================================================
   - name: "blog"
     label: "Blog Posts"
     folder: "public/content/blog"
@@ -23,8 +20,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     i18n: true
 
-    # ✅ Images du blog
-    media_folder: "/public/images/blog"
+    media_folder: "../../images/blog"
     public_folder: "/images/blog"
 
     editor:
@@ -47,11 +43,14 @@ collections:
 
       - { label: "Body", name: "body", widget: "markdown", i18n: true }
 
-      - { label: "Category", name: "category", widget: "select", options: ["Travel", "History", "Culture", "Tips"], i18n: duplicate }
+      - { label: "Category", name: "category", widget: "select",
+          options: ["Travel", "History", "Culture", "Tips"], i18n: duplicate }
 
-      - { label: "Meta Description", name: "metaDescription", widget: "text", i18n: true, required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text",
+          i18n: true, required: false }
 
-      - { label: "Meta Keywords", name: "keywords", widget: "list", i18n: true, required: false }
+      - { label: "Meta Keywords", name: "keywords", widget: "list",
+          i18n: true, required: false }
 
       - label: "External Links"
         name: "externalLinks"
@@ -63,15 +62,18 @@ collections:
           - { label: "URL", name: "url", widget: "string" }
           - { label: "Description", name: "description", widget: "string", required: false }
 
-      - { label: "Author", name: "author", widget: "string", default: "La Casa de Teresita", i18n: duplicate, required: false }
+      - { label: "Author", name: "author", widget: "string",
+          default: "La Casa de Teresita", i18n: duplicate }
 
-      - { label: "Published", name: "published", widget: "boolean", default: true, i18n: duplicate }
+      - { label: "Published", name: "published", widget: "boolean",
+          default: true, i18n: duplicate }
 
-      - { label: "Featured Post", name: "featured", widget: "boolean", default: false, i18n: duplicate }
+      - { label: "Featured Post", name: "featured", widget: "boolean",
+          default: false, i18n: duplicate }
 
-  # ===============================
-  # MUSEUM
-  # ===============================
+  # =========================================================
+  # 🏛️ MUSEUM
+  # =========================================================
   - name: "museum"
     label: "Museum Artworks"
     folder: "public/content/museum"
@@ -79,37 +81,41 @@ collections:
     slug: "{{slug}}"
     i18n: true
 
-    # ✅ Images du musée
-    media_folder: "/public/images/museum"
+    # ✅ CORRECTION CLÉ
+    media_folder: "../../images/museum"
     public_folder: "/images/museum"
 
     fields:
       - { label: "Artwork Title", name: "title", widget: "string", i18n: true }
 
-      - { label: "Artist", name: "artist", widget: "string", i18n: duplicate, required: false }
+      - { label: "Artist", name: "artist", widget: "string",
+          i18n: duplicate, required: false }
 
-      - { label: "Year", name: "year", widget: "string", i18n: duplicate, required: false }
+      - { label: "Year", name: "year", widget: "string",
+          i18n: duplicate, required: false }
 
-      - { label: "Image", name: "image", widget: "image", i18n: duplicate }
-
-      - label: "Featured Image"
-        name: "featuredImage"
+      # ✅ UNE SEULE IMAGE AVEC ALT (FIN DU BUG)
+      - label: "Image"
+        name: "image"
         widget: "object"
-        i18n: false
-        required: false
+        i18n: duplicate
         fields:
-          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Image File", name: "src", widget: "image" }
           - { label: "Alt Text", name: "alt", widget: "string" }
 
-      - { label: "Excerpt", name: "excerpt", widget: "text", i18n: true, required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text",
+          i18n: true, required: false }
 
       - { label: "Description", name: "body", widget: "markdown", i18n: true }
 
-      - { label: "QR Code URL", name: "qrCode", widget: "string", i18n: duplicate, required: false }
+      - { label: "QR Code URL", name: "qrCode", widget: "string",
+          i18n: duplicate, required: false }
 
-      - { label: "YouTube Video", name: "youtube", widget: "string", i18n: duplicate, required: false }
+      - { label: "YouTube Video", name: "youtube", widget: "string",
+          i18n: duplicate, required: false }
 
-      - { label: "Spotify Audio", name: "spotify", widget: "string", i18n: duplicate, required: false }
+      - { label: "Spotify Audio", name: "spotify", widget: "string",
+          i18n: duplicate, required: false }
 
       - { label: "Category", name: "category", widget: "select",
           options:
@@ -120,16 +126,22 @@ collections:
             - Activity
             - Viewpoint
             - Stained Glass Art
-        , i18n: duplicate }
+          i18n: duplicate }
 
-      - { label: "Location in Museum", name: "location", widget: "string", i18n: true, required: false }
+      - { label: "Location in Museum", name: "location", widget: "string",
+          i18n: true, required: false }
 
-      - { label: "Display Order", name: "order", widget: "number", default: 0, i18n: duplicate }
+      - { label: "Display Order", name: "order", widget: "number",
+          default: 0, i18n: duplicate }
 
-      - { label: "Meta Description", name: "metaDescription", widget: "text", i18n: true, required: false }
+      - { label: "Meta Description", name: "metaDescription", widget: "text",
+          i18n: true, required: false }
 
-      - { label: "Meta Keywords", name: "keywords", widget: "list", i18n: true, required: false }
+      - { label: "Meta Keywords", name: "keywords", widget: "list",
+          i18n: true, required: false }
 
-      - { label: "Published", name: "published", widget: "boolean", default: true, i18n: duplicate }
+      - { label: "Published", name: "published", widget: "boolean",
+          default: true, i18n: duplicate }
 
-      - { label: "Featured Artwork", name: "featured", widget: "boolean", default: false, i18n: duplicate }
+      - { label: "Featured Artwork", name: "featured", widget: "boolean",
+          default: false, i18n: duplicate }
