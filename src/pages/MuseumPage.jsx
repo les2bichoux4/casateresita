@@ -328,8 +328,8 @@ const ImprovedMuseumSlider = ({ articles, language, categoryColors }) => {
             {/* Image - 50% */}
             <div className="relative h-1/2">
               <img 
-                src={article.image || article.featuredImage?.src}
-                alt="" 
+                src={currentArticle.image || currentArticle.featuredImage?.src}
+                alt={currentArticle.featuredImage?.alt || currentArticle.title}
                 className="w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -458,8 +458,8 @@ const ImprovedMuseumSlider = ({ articles, language, categoryColors }) => {
             <div className="flex flex-col" style={{ height: 'calc(70vh - 3rem)' }}>
               <div className="relative flex-1 bg-[#1a1a1a] rounded-xl overflow-hidden border-2 border-[#C4A96A]">
                 <img
-                  src={currentArticle.image}
-                  alt={currentArticle.title}
+                  src={currentArticle.image || currentArticle.featuredImage?.src}
+                  alt={currentArticle.featuredImage?.alt || currentArticle.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
