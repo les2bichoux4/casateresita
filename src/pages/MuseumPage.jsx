@@ -327,10 +327,10 @@ const ImprovedMuseumSlider = ({ articles, language, categoryColors }) => {
           <div className="md:hidden flex flex-col" style={{ height: '70vh' }}>
             {/* Image - 50% */}
             <div className="relative h-1/2">
-              <img
-                src={currentArticle.image}
-                alt={currentArticle.title}
-                className="w-full h-full object-cover"
+              <img 
+                src={article.image || article.featuredImage?.src}
+                alt="" 
+                className="w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               
@@ -517,8 +517,8 @@ const ArtworkMuseumCard = ({ artwork, language, categoryColors, featured = false
         <div className="relative aspect-[4/3] bg-black overflow-hidden border-b-2 border-[#C4A96A]">
           {!imageError ? (
             <img 
-              src={artwork.image} 
-              alt={artwork.title}
+              src={artwork.image || artwork.featuredImage?.src}
+              alt={artwork.featuredImage?.alt || artwork.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
               onError={handleImageError}
