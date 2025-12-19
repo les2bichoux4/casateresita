@@ -18,8 +18,8 @@ collections:
     folder: "public/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    # Configuration des images au niveau de la collection
-    media_folder: "public/images/blog"
+    # Chemins absolus depuis la racine du repo
+    media_folder: "/public/images/blog"
     public_folder: "/images/blog"
     i18n: true
     editor:
@@ -59,8 +59,8 @@ collections:
     folder: "public/content/museum"
     create: true
     slug: "{{slug}}"
-    # Configuration des images au niveau de la collection
-    media_folder: "public/images/museum"
+    # Chemins absolus depuis la racine du repo
+    media_folder: "/public/images/museum"
     public_folder: "/images/museum"
     i18n: true
     fields:
