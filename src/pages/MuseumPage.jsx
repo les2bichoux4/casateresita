@@ -467,15 +467,19 @@ const ImprovedMuseumSlider = ({ articles, language, categoryColors }) => {
 
               {/* Thumbnails */}
               <div className="flex gap-2 mt-3 justify-center">
-                {articles.map((article, index) => (
+                {articles.map((artwork, index) => (
                   <button
-                    key={article.slug}
+                    key={artwork.slug}
                     onClick={() => goToSlide(index)}
                     className={`w-16 h-20 rounded overflow-hidden border-2 transition-all ${
                       index === currentIndex ? 'border-[#C4A96A] scale-110' : 'border-[#C4A96A]/30 opacity-60'
                     }`}
                   >
-                    <img src={article.image} alt="" className="w-full h-full object-cover" />
+                    <img 
+                      src={artwork.image || artwork.featuredImage?.src} 
+                      alt="" 
+                      className="w-full h-full object-cover" 
+                    />
                   </button>
                 ))}
               </div>
