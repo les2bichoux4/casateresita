@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-# ✅ Chemins RELATIFS (sans le slash initial)
+# Dossier racine par défaut
 media_folder: "public/images"
 public_folder: "/images"
 
@@ -18,8 +18,8 @@ collections:
     folder: "public/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    # ✅ Chemins RELATIFS pour les images du blog
-    media_folder: "public/images/blog"
+    # Chemins absolus depuis la racine du repo
+    media_folder: "/public/images/blog"
     public_folder: "/images/blog"
     i18n: true
     editor:
@@ -28,7 +28,7 @@ collections:
       - {label: "Title", name: "title", widget: "string", i18n: true, hint: "The main title of your blog post (50-60 characters recommended for SEO)"}
       - {label: "Publish Date", name: "date", widget: "datetime", i18n: duplicate}
       
-      # ✅ Featured Image - i18n au niveau des sous-champs
+      # ✅ SOLUTION : Retirer i18n de l'objet et le mettre sur chaque sous-champ
       - label: "Featured Image"
         name: "featuredImage"
         widget: "object"
@@ -61,8 +61,8 @@ collections:
     folder: "public/content/museum"
     create: true
     slug: "{{slug}}"
-    # ✅ Chemins RELATIFS pour les images du musée
-    media_folder: "public/images/museum"
+    # Chemins absolus depuis la racine du repo
+    media_folder: "/public/images/museum"
     public_folder: "/images/museum"
     i18n: true
     fields:
@@ -73,7 +73,7 @@ collections:
          i18n: duplicate,
          hint: "Main image for the artwork"}
       
-      # ✅ Featured Image - i18n au niveau des sous-champs
+      # ✅ SOLUTION : Retirer i18n de l'objet et le mettre sur chaque sous-champ
       - label: "Featured Image"
         name: "featuredImage"
         widget: "object"
